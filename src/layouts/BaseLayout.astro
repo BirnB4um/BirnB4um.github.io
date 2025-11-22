@@ -1,0 +1,43 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+---
+
+
+<style>
+	.page-wrapper {
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+    .expand {
+        flex: 1;
+    }
+</style>
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		
+        <div class="page-wrapper">
+            <Header/>
+            <slot/>
+            <div class="expand"/>
+            <Footer/>
+        </div>
+
+	</body>
+</html>
+
+
+<script>
+	// set theme. can be loaded from user settings later
+	document.documentElement.className = "theme-dark";
+</script>

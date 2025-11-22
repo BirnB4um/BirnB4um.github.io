@@ -9,51 +9,66 @@ import SocialLinks from './SocialLinks.astro';
 	header {
 		margin: 0;
 		padding: 0 1em;
-		background: linear-gradient(90deg, rgb(255, 128, 100) 0%, rgb(255, 55, 185) 100%);
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+		box-shadow: 0 2px 8px var(--color-bg);
+		
+		background: var(--color-bg);
+		color: var(--color-text);
 	}
-	h2 {
+	/* h2 {
 		margin: 0;
 		font-size: 1em;
-	}
+	} */
 
-	h2 a,
+	/* h2 a,
 	h2 a.active {
 		text-decoration: none;
-	}
+	} */
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		flex-wrap: nowrap;
 	}
 	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
+		padding: 1em 1em;
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		color: var(--color-text);
 	}
 	nav a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
-	.social-links,
+	/* .social-links,
 	.social-links a {
 		display: flex;
+	} */
+
+	.internal-links {
+		align-self: stretch;
+		display: flex;
+		gap: 0rem;
 	}
-	@media (max-width: 720px) {
+
+	@media (max-width: 600px) {
 		.social-links {
 			display: none;
 		}
 	}
+
 </style>
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2>
+			<a href="/">BirnB4um</a>
+		</h2>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/projects">Projects</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
 		</div>
-		<SocialLinks/>
+		<SocialLinks class="social-links"/>
 	</nav>
 </header>
 

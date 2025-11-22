@@ -3,19 +3,23 @@ import SocialLinks from './SocialLinks.astro';
 const today = new Date();
 ---
 
-
 <style>
 	footer {
 		padding: 2em 1em 4em 1em;
-		background: linear-gradient(90deg, rgb(255, 128, 100) 0%, rgb(255, 55, 185) 100%);
-		color: rgb(var(--gray));
+		background: var(--color-bg);
+		color: var(--color-text);
 		text-align: center;
+	}
+	.social-links-footer {
+		margin-top: 1rem;
 	}
 </style>
 
 
 <footer>
 	&copy; {today.getFullYear()} BirnB4um. All rights reserved.
-	<SocialLinks/>
+	<div class="social-links-footer">
+		<SocialLinks/>
+	</div>
 </footer>
 

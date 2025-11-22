@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 import { Code } from "astro:components";
@@ -20,47 +21,22 @@ for (let i = 0; i < n; i++) {
 		width: 100vw;
 		height: 100vh;
 		z-index: -1;
-		background: linear-gradient(90deg, rgb(255, 194, 181), rgb(255, 170, 225));
-	}
-
-	.page-wrapper {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+		background: var(--color-bg-2);
 	}
 
 	main {
-		flex: 1;
 		background: none;
+		color: var(--color-text);
 	}
-
 
 </style>
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		
-		<div class="page-wrapper">
-			<Header />
-			<canvas id="bg"></canvas>
-			<main>
-				<h1>Hello, World!</h1>
-				<p>Welcome to my Astro site.</p>
-				<Code code={js_code} lang="js"/>
-				<Code code={js_code} lang="js"/>
-			</main>
-			<Footer />
-		</div>
 
-	</body>
-</html>
-
-<script>
-	import { initBouncingBalls } from '../scripts/bouncingBalls.ts';
-	const canvas = document.getElementById('bg') as HTMLCanvasElement;
-	initBouncingBalls(canvas, 100);
-</script>
+<BaseLayout>
+	<main>
+		<canvas id="bg"></canvas>
+		<h1>Hello, World!</h1>
+		<p>Welcome to my Astro site.</p>
+		<Code code={js_code} lang="js"/>
+	</main>
+</BaseLayout>
