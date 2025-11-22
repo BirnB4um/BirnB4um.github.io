@@ -14,20 +14,13 @@ import SocialLinks from './SocialLinks.astro';
 		background: var(--color-bg);
 		color: var(--color-text);
 	}
-	/* h2 {
-		margin: 0;
-		font-size: 1em;
-	} */
 
-	/* h2 a,
-	h2 a.active {
-		text-decoration: none;
-	} */
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		flex-wrap: nowrap;
+		flex-wrap: wrap;
+		overflow: hidden;
 	}
 	nav a {
 		padding: 1em 1em;
@@ -39,10 +32,6 @@ import SocialLinks from './SocialLinks.astro';
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
-	/* .social-links,
-	.social-links a {
-		display: flex;
-	} */
 
 	.internal-links {
 		align-self: stretch;
@@ -50,7 +39,7 @@ import SocialLinks from './SocialLinks.astro';
 		gap: 0rem;
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 700px) {
 		.social-links {
 			display: none;
 		}
@@ -68,7 +57,9 @@ import SocialLinks from './SocialLinks.astro';
 			<HeaderLink href="/projects">Projects</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 		</div>
-		<SocialLinks class="social-links"/>
+		<div class="social-links">
+			<SocialLinks/>
+		</div>
 	</nav>
 </header>
 

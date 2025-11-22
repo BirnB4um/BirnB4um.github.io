@@ -12,6 +12,7 @@
 	--color-text: var(--color-6);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
+	--color-code-bg: var(--color-3);
 	--accent: var(--color-6);
 
 }
@@ -20,6 +21,7 @@ html.theme-dark {
 	--color-text: var(--color-6);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
+	--color-code-bg: var(--color-0);
 	--accent: var(--color-6);
 }
 
@@ -27,6 +29,7 @@ html.theme-light {
 	--color-text: var(--color-1);
 	--color-bg: var(--color-4);
 	--color-bg-2: var(--color-5);
+	--color-code-bg: var(--color-3);
 	--accent: var(--color-1);
 }
 
@@ -43,7 +46,7 @@ body {
 }
 
 main {
-	margin: 2vw;
+	margin: 1em;
 	background: none;
 }
 
@@ -53,8 +56,7 @@ code {
 
 .astro-code {
 	padding: 1em;
-    background-color: var(--color-0) !important;
-    color: var(--text) !important;
+    background-color: var(--color-code-bg) !important;
 	border-radius: 8px;
 }
 
