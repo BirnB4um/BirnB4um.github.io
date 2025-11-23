@@ -37,7 +37,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 </html>
 
 
-<script>
+<!-- <script>
 	// set theme. can be loaded from user settings later
 	document.documentElement.className = "theme-dark";
+</script> -->
+
+<script>
+  const saved = localStorage.getItem("theme");
+
+  // if nothing saved, follow system preference
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const theme = saved || (prefersDark ? "theme-dark" : "theme-light");
+  document.documentElement.classList.add(theme);
 </script>

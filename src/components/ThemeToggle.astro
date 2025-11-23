@@ -1,0 +1,101 @@
+---
+let initialTheme = 'theme-dark';
+if (typeof window !== 'undefined') {
+  initialTheme = localStorage.getItem('theme') || 'theme-dark';
+}
+---
+
+<style>
+    .theme-toggle {
+        background: var(--color-bg-2);
+        color: var(--color-text);
+        border: none;
+        cursor: pointer;
+
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+    }
+
+    .icon {
+        width: 70%;
+        stroke-width: 2;
+        transition: transform .35s ease;
+    }
+
+    .sun {
+        transition: opacity .35s ease;
+    }
+    html.theme-dark .sun {
+        opacity: 0;
+    }
+
+    .moon {
+        transition: opacity .35s ease;
+    }
+    html.theme-light .moon {
+        opacity: 0;
+    }
+
+    /* animation */
+    .theme-toggle:active .icon {
+        transform: rotate(10deg) scale(0.8);
+        transition: transform 0.1s ease-out;
+    }
+
+</style>
+
+
+<button class="theme-toggle" aria-label="Toggle theme">
+  <svg class="icon" viewBox="0 0 24 24" stroke="currentColor" fill="none">
+    <!-- Sun rays -->
+    <g class="sun sun-rays">
+      <line x1="12" y1="1" x2="12" y2="4" />
+      <line x1="12" y1="20" x2="12" y2="23" />
+      <line x1="1" y1="12" x2="4" y2="12" />
+      <line x1="20" y1="12" x2="23" y2="12" />
+      <line x1="4.2" y1="4.2" x2="6.4" y2="6.4" />
+      <line x1="17.6" y1="17.6" x2="19.8" y2="19.8" />
+      <line x1="4.2" y1="19.8" x2="6.4" y2="17.6" />
+      <line x1="17.6" y1="6.4" x2="19.8" y2="4.2" />
+    </g>
+
+    <!-- Sun circle -->
+    <circle class="sun sun-core" cx="12" cy="12" r="5" />
+
+    <!-- Crescent moon -->
+    <path class="moon" fill="none" d="M 14 2 A 10 10 0 1 0 22 15 A 5 5 0 0 1 14 2 Z"/>
+  </svg>
+</button>
+
+
+
+
+<script>
+    const btn = document.querySelector(".theme-toggle") as HTMLElement;
+
+    btn.addEventListener("click", () => {
+        const html = document.documentElement;
+        const isDark = html.classList.contains("theme-dark");
+
+        html.classList.toggle("theme-dark", !isDark);
+        html.classList.toggle("theme-light", isDark);
+
+        localStorage.setItem("theme", isDark ? "theme-light" : "theme-dark");
+        console.log("Theme");
+    });
+
+    // Load saved theme
+    const saved = localStorage.getItem("theme");
+    if (saved) {
+        let is_dark = saved === "theme-dark";
+        document.documentElement.classList.toggle("theme-dark", is_dark);
+        document.documentElement.classList.toggle("theme-light", !is_dark);
+    }
+</script>

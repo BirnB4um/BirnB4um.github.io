@@ -2,6 +2,7 @@
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import SocialLinks from './SocialLinks.astro';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 
@@ -57,9 +58,10 @@ import SocialLinks from './SocialLinks.astro';
 			<HeaderLink href="/projects">Projects</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 		</div>
-		<div class="social-links">
+		<!-- <div class="social-links">
 			<SocialLinks/>
-		</div>
+		</div> -->
+		<ThemeToggle/>
 	</nav>
 </header>
 
