@@ -4,14 +4,15 @@
 	--color-1: #181825;
 	--color-2: #1e1e2e;
 	--color-3: #292941;
-	--color-4: #8f67b5;
+	--color-4: #a06dd0;
 	/* --color-4: #a57bc0;  */
-	--color-5: #dcd1f0;
+	--color-5: #c9aae7;
 	--color-6: #cdd6f4;
 	
 	--color-text: var(--color-6);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
+	--color-bg-3: var(--color-3);
 	--color-code-bg: var(--color-3);
 	--accent: var(--color-6);
 
@@ -21,6 +22,7 @@ html.theme-dark {
 	--color-text: var(--color-6);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
+	--color-bg-3: var(--color-3);
 	--color-code-bg: var(--color-0);
 	--accent: var(--color-6);
 }
@@ -29,6 +31,7 @@ html.theme-light {
 	--color-text: var(--color-1);
 	--color-bg: var(--color-4);
 	--color-bg-2: var(--color-5);
+	--color-bg-3: var(--color-3);
 	--color-code-bg: var(--color-3);
 	--accent: var(--color-1);
 }

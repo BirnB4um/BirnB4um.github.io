@@ -51,6 +51,7 @@ import BirneLogo from './BirneLogo.astro';
 	h2 {
 		margin: 0.5em;
 		font-size: 1.2em;
+		transition: transform 0.3s ease;
 	}
 	h2 a {
 		display: flex;
@@ -64,6 +65,18 @@ import BirneLogo from './BirneLogo.astro';
 		width: auto;
 		margin-right: 0.5em;
 		color: var(--color-text);
+	}
+
+	h2:hover {
+		transform: rotate(-5deg);
+		transition: transform 0.3s ease 2s;
+		animation: wiggle 1s ease-in-out 2.3s infinite;
+	}
+
+	@keyframes wiggle {
+		0%   { transform: rotate(-5deg); }
+		50%  { transform: rotate(5deg); }
+		100% { transform: rotate(-5deg); }
 	}
 	
 </style>
