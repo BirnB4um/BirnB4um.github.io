@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+type Props = CollectionEntry<'projects'>['data'];
+
+const { title, description, pubDate, updatedDate, thumbnail } = Astro.props;
+---
+
+<style>
+
+    main {
+        /* width: 80%; */
+        /* margin: 0 auto; */
+    }
+
+    article {
+        margin-top: 2em;
+        margin-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .thumbnail {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2em;
+    }
+
+    .thumbnail img {
+        width: 90%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        min-width: 200px;
+        max-width: 700px;
+        border-radius: 12px;
+    }
+
+    .prose {
+        width: 800px;
+        max-width: calc(100% - 2em);
+    }
+
+    .title {
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+
+    h1 {
+        margin: 0;
+        margin-bottom: 0.3em;
+        font-size: 2.5em;
+    }
+
+    .date {
+        margin-bottom: 1.5em;
+    }
+
+    .last-updated-on {
+        font-style: italic;
+    }
+
+    hr {
+        width: 100%;
+        border: none;
+        /* border-top: 1px solid var(--color-text); */
+        margin-bottom: 3em;
+    }
+
+</style>
+
+
+<BaseLayout>
+    <main>
+        <article>
+            {thumbnail && <div class="thumbnail"><Image src={thumbnail} alt="" /></div>}
+            <div class="prose">
+                <div class="title">
+                    <h1>{title}</h1>
+                    <div class="date">
+                        <FormattedDate date={pubDate} />
+                        {
+                            updatedDate && (
+                                <div class="last-updated-on">
+                                    Last updated on <FormattedDate date={updatedDate} />
+                                </div>
+                            )
+                        }
+                    </div>
+                </div>
+                <hr />
+                <slot />
+            </div>
+        </article>
+    </main>
+</BaseLayout>

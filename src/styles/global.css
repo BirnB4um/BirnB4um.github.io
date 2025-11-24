@@ -5,14 +5,15 @@
 	--color-2: #1e1e2e;
 	--color-3: #292941;
 	--color-4: #a06dd0;
-	/* --color-4: #a57bc0;  */
 	--color-5: #c9aae7;
 	--color-6: #cdd6f4;
 	
 	--color-text: var(--color-6);
+	--color-text-secondary: var(--color-5);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
 	--color-bg-3: var(--color-3);
+	--color-bg-text-highlight: var(--color-3);
 	--color-code-bg: var(--color-3);
 	--accent: var(--color-6);
 
@@ -20,18 +21,22 @@
 
 html.theme-dark {
 	--color-text: var(--color-6);
+	--color-text-secondary: var(--color-5);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
 	--color-bg-3: var(--color-3);
+	--color-bg-text-highlight: var(--color-3);
 	--color-code-bg: var(--color-0);
 	--accent: var(--color-6);
 }
 
 html.theme-light {
 	--color-text: var(--color-1);
+	--color-text-secondary: var(--color-2);
 	--color-bg: var(--color-4);
 	--color-bg-2: var(--color-5);
 	--color-bg-3: var(--color-3);
+	--color-bg-text-highlight: var(--color-4);
 	--color-code-bg: var(--color-3);
 	--accent: var(--color-1);
 }
@@ -46,6 +51,7 @@ body {
 
 	background: var(--color-bg-2);
 	color: var(--color-text);
+	/* word-wrap: break-word; */
 }
 
 main {
@@ -61,6 +67,73 @@ code {
 	padding: 1em;
     background-color: var(--color-code-bg) !important;
 	border-radius: 8px;
+}
+
+/* Style markdown elements */
+.prose {
+	font-size: 1.2em;
+	line-height: 1.5;
+
+	h1 {
+		font-size: 2.5em;
+	}
+	h2 {
+		font-size: 2.2em;
+	}
+	h3 {
+		font-size: 2.0em;
+	}
+	h4 {
+		font-size: 1.8em;
+	}
+	h5 {
+		font-size: 1.5em;
+	}
+	h6 {
+		font-size: 1.2em;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0 0 0.5em 0;
+	}
+
+
+	a {
+		text-decoration: underline;
+		color: var(--color-text);
+	}
+
+	a:hover {
+		color: var(--color-text-secondary);
+	}
+
+	code {
+		background-color: var(--color-bg-text-highlight);
+	}
+
+	pre code {
+		background-color: var(--color-code-bg);
+	}
+
+	img {
+		border-radius: 8px;
+		max-width: 100%;
+		height: auto;
+	}
+
+	p{
+		margin-bottom: 2em;
+	}
+
+	table {
+		width: 100%;
+		margin-bottom: 1em;
+
+		thead {
+			text-align: left;
+		}
+
+	}
 }
 
 .sr-only {

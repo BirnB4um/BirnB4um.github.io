@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('projects')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+
+<style>
+
+    main {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    section > a {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    section > a img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .title {
+        margin: 0.5em 0 0 0;
+    }
+
+    .date {
+        margin: 0.25em 0 0 0;
+        color: var(--color-text);
+        font-size: 0.9em;
+    }
+
+</style>
+
+
+<BaseLayout>
+    <main>
+        <section>
+            {posts.length === 0 && <p>No projects found.</p>}
+            {
+                posts.map((post) => (
+                    <a href={`/projects/${post.id}/`}>
+                        {post.data.thumbnail && (
+                            <Image src={post.data.thumbnail} alt="" />
+                        )}
+                        <h3 class="title">{post.data.title}</h3>
+                        <p class="date">
+                            <FormattedDate date={post.data.pubDate} />
+                        </p>
+                    </a>
+                ))
+            }
+        </section>
+    </main>
+</BaseLayout>
