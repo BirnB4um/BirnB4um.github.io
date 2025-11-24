@@ -1,0 +1,56 @@
+---
+
+---
+
+
+<button id="back-to-top" title="Back to top">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+    <path d="M 4 17 L 12 6 L 20 17 Z"/>
+  </svg>
+</button>
+
+<style>
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    background-color: var(--color-bg-3);
+    color: var(--color-text);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    opacity: 0.8;
+}
+</style>
+
+<script>
+    const button = document.getElementById('back-to-top') as HTMLButtonElement;
+    const scrollThreshold = 500;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > scrollThreshold) {
+            button.classList.add('show');
+        } else {
+            button.classList.remove('show');
+        }
+    });
+
+    button.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
