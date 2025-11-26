@@ -53,7 +53,7 @@ const posts = (await getCollection('projects')).sort(
 </style>
 
 
-<BaseLayout>
+<BaseLayout title="Projects" description="A collection of my projects.">
     <main>
         <section>
             {posts.length === 0 && <p>No projects found.</p>}

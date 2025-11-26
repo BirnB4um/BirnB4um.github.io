@@ -5,6 +5,13 @@ import Header from '../components/Header.astro';
 import BackToTop from '../components/BackToTop.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
 ---
 
 
@@ -23,7 +30,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={title ?? SITE_TITLE} description={description ?? SITE_DESCRIPTION} />
 	</head>
 	<body>
 		
@@ -37,11 +44,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</body>
 </html>
 
-
-<!-- <script>
-	// set theme. can be loaded from user settings later
-	document.documentElement.className = "theme-dark";
-</script> -->
 
 <script>
   const saved = localStorage.getItem("theme");

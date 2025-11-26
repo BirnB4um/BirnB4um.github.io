@@ -7,6 +7,8 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 type Props = CollectionEntry<'projects'>['data'];
 
 const { title, description, pubDate, updatedDate, thumbnail } = Astro.props;
+
+const defaultDescription = "A project post";
 ---
 
 <style>
@@ -72,8 +74,7 @@ const { title, description, pubDate, updatedDate, thumbnail } = Astro.props;
 
 </style>
 
-
-<BaseLayout>
+<BaseLayout title={title} description={description ?? defaultDescription}>
     <main>
         <article>
             {thumbnail && <div class="thumbnail"><Image src={thumbnail} alt="" /></div>}
