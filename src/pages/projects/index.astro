@@ -20,24 +20,32 @@ const posts = (await getCollection('projects')).sort(
     section {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
+        gap: 1rem;
         margin-top: 2em;
         margin-bottom: 2em;
     }
 
-    section > a {
+    .post {
         display: flex;
         flex-direction: column;
         text-decoration: none;
         color: inherit;
+        border-radius: 8px;
+        padding: 0.5em;
+        transition: background-color 0.2s ease;
     }
 
-    section > a img {
+    .post img {
         width: 100%;
         height: auto;
         aspect-ratio: 16/9;
         object-fit: cover;
         border-radius: 8px;
+    }
+
+    .post:hover {
+        background-color: var(--color-bg);
+        transition: background-color 0.2s ease;
     }
 
     .title {
@@ -59,15 +67,17 @@ const posts = (await getCollection('projects')).sort(
             {posts.length === 0 && <p>No projects found.</p>}
             {
                 posts.map((post) => (
-                    <a href={`/projects/${post.id}/`}>
-                        {post.data.thumbnail && (
-                            <Image src={post.data.thumbnail} alt="" />
-                        )}
-                        <h3 class="title">{post.data.title}</h3>
-                        <p class="date">
-                            <FormattedDate date={post.data.pubDate} />
-                        </p>
-                    </a>
+                    <div class="post-wrapper">
+                        <a class="post" href={`/projects/${post.id}/`}>
+                            {post.data.thumbnail && (
+                                <Image src={post.data.thumbnail} alt="" />
+                            )}
+                            <h3 class="title">{post.data.title}</h3>
+                            <p class="date">
+                                <FormattedDate date={post.data.pubDate} />
+                            </p>
+                        </a>
+                    </div>
                 ))
             }
         </section>
