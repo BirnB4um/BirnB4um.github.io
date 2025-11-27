@@ -27,7 +27,23 @@ for (let i = 0; i < n; i++) {
 	main {
 		background: none;
 		color: var(--color-text);
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		margin: 2em auto;
 	}
+
+	p {
+		font-size: 1.2em;
+		line-height: 1.6em;
+		margin: 0.5em 0;
+		text-align: justify;
+		text-justify: inter-word;
+	}
+
+	a {
+		color: var(--color-text);
+	}
+
 
 </style>
 
@@ -35,18 +51,15 @@ for (let i = 0; i < n; i++) {
 <BaseLayout>
 	<main>
 		<canvas id="bg"></canvas>
-		<h1>Hello, World!</h1>
-		<p>Welcome to my Astro site.</p>
-		<Code code={js_code} lang="js"/>
-		<!-- <Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/>
-		<Code code={js_code} lang="js"/> -->
+		<h1>Welcome! \o/</h1>
+		<p>
+			Hey, I'm Thimo, online I go by BirnB4um.<br>
+			I spend my free time building random projects, writing little tools, and exploring data.<br>
+			This website is a place to showcase the stuff I'm working on and share my thoughts.<br>
+			It should also help me push myself to actually finish more of those projects instead of leaving them half-done :P<br>
+		</p>
+		<br/>
+		<i>Note: This website is still under construction, so be patient as I work on it and add all my projects :)</i>
 	</main>
 </BaseLayout>
 

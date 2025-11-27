@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+---
+
+<style>
+
+	main {
+		background: none;
+		color: var(--color-text);
+		width: 600px;
+		max-width: calc(100% - 2rem);
+		margin: 2em auto;
+	}
+
+    p {
+		font-size: 1em;
+		line-height: 1.4em;
+		margin: 0;
+        margin-bottom: 0.5em;
+		/* text-align: justify; */
+		/* text-justify: inter-word; */
+	}
+
+	a {
+		color: var(--color-text);
+	}
+
+    h2 {
+        margin: 2em 0 0.5em 0;
+    }
+
+    ul {
+        margin: 0;
+        margin-bottom: 0.5em;
+    }
+
+    li {
+        margin-bottom: 0.5em;
+    }
+
+</style>
+
+<BaseLayout title="About Me" description="Learn more about me on this page.">
+    <main>
+        <h1>About Me</h1>
+        <p>Stuff about me.</p>
+        <h2>Socials</h2>
+        <p>Some places I am at:</p>
+        <ul>
+            <li>
+                GitHub: <a href="https://github.com/BirnB4um" target="_blank">BirnB4um</a>
+            </li>
+            <li>
+                Youtube: <a href="https://www.youtube.com/@birnb4um" target="_blank">birnbaum</a>
+            </li>
+            <li>
+                Discord: @birnbaum
+            </li>
+            <li>
+                osu!: <a href="https://osu.ppy.sh/users/37691502" target="_blank">BirnB4um</a>
+            </li>
+        </ul>
+        <h2>Contact</h2>
+        <p>If you have questions, ideas or anything else, write me an email at <a href="mailto:thimo.thorandt@gmail.com">thimo.thorandt@gmail.com</a></p>
+    </main>
+</BaseLayout>
