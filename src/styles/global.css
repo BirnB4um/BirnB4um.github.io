@@ -8,16 +8,25 @@
 	--color-5: #c9aae7;
 	--color-6: #cdd6f4;
 	--color-7: #5f3a81;
+
+
+	--color-10: #fbfbfb;
+	--color-11: #c5c8d2;
+	--color-12: #abaeba;
+	--color-13: #8d8f9a;
+	--color-14: #33343a;
+	--color-15: #18191e;
+	--color-16: #101010;
 	
+	/* default darkmode */
 	--color-text: var(--color-6);
 	--color-text-secondary: var(--color-5);
 	--color-bg: var(--color-1);
 	--color-bg-2: var(--color-2);
 	--color-bg-3: var(--color-3);
 	--color-bg-text-highlight: var(--color-3);
-	--color-code-bg: var(--color-3);
+	--color-code-bg: var(--color-0);
 	--accent: var(--color-6);
-
 }
 
 html.theme-dark {
@@ -32,14 +41,14 @@ html.theme-dark {
 }
 
 html.theme-light {
-	--color-text: var(--color-1);
-	--color-text-secondary: var(--color-2);
-	--color-bg: var(--color-4);
-	--color-bg-2: var(--color-5);
-	--color-bg-3: var(--color-7);
-	--color-bg-text-highlight: var(--color-4);
-	--color-code-bg: var(--color-7);
-	--accent: var(--color-1);
+	--color-text: var(--color-15);
+	--color-text-secondary: var(--color-13);
+	--color-bg: var(--color-11);
+	--color-bg-2: var(--color-10);
+	--color-bg-3: var(--color-12);
+	--color-bg-text-highlight: var(--color-11);
+	--color-code-bg: var(--color-14);
+	--accent: var(--color-15);
 }
 
 
