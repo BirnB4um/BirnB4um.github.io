@@ -12,11 +12,11 @@
 
 	--color-10: #e5edff;
 	--color-11: #6b95ff;
-	--color-12: rgb(90, 120, 241);
+	--color-12: #5a78f1;
 	--color-13: #063fb0;
 	--color-14: #33343a;
 	--color-15: #18191e;
-	--color-16: #101010;
+	--color-16: #b1c7ff;
 	
 	/* default darkmode */
 	--color-text: var(--color-6);
@@ -46,7 +46,7 @@ html.theme-light {
 	--color-bg: var(--color-11);
 	--color-bg-2: var(--color-10);
 	--color-bg-3: var(--color-12);
-	--color-bg-text-highlight: var(--color-11);
+	--color-bg-text-highlight: var(--color-16);
 	--color-code-bg: var(--color-14);
 	--accent: var(--color-15);
 }
