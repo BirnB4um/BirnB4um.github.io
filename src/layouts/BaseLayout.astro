@@ -30,6 +30,7 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="en">
 	<head>
+    <script src="/src/scripts/theme.js" is:inline></script>
 		<BaseHead title={title ?? SITE_TITLE} description={description ?? SITE_DESCRIPTION} />
 	</head>
 	<body>
@@ -43,10 +44,3 @@ const { title, description } = Astro.props;
         <BackToTop />
 	</body>
 </html>
-
-
-<script>
-  const saved = localStorage.getItem("theme");
-  const theme = saved ? saved : "theme-dark"; // default to dark if not saved
-  document.documentElement.classList.add(theme);
-</script>

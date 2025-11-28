@@ -10,10 +10,10 @@
 	--color-7: #5f3a81;
 
 
-	--color-10: #fbfbfb;
-	--color-11: #c5c8d2;
-	--color-12: #abaeba;
-	--color-13: #696a75;
+	--color-10: #e5edff;
+	--color-11: #6b95ff;
+	--color-12: rgb(90, 120, 241);
+	--color-13: #063fb0;
 	--color-14: #33343a;
 	--color-15: #18191e;
 	--color-16: #101010;
@@ -146,6 +146,23 @@ code {
 		}
 
 	}
+}
+
+.rainbow {
+  color: rgb(255, 0, 0);
+  background-color: rgb(0, 255, 200);
+  border-radius: 10px;
+  padding: 5px;
+  animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 
 .sr-only {
