@@ -42,9 +42,32 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ![blog placeholder](../../assets/default_thumbnail.png)
 
+here is a resized image:  
+
+
+
 import { Image } from 'astro:assets';
 
-{/* <Image src={img1} alt="blog placeholder" /> */}
+import myPic from '../../assets/default_thumbnail.png';
+
+<Image src={myPic} alt="something" height={300} quality={100} draggable={false} densities={[1, 2]} onclick={'alert(0)'} />
+
+
+import img1 from '../../assets/default_thumbnail.png';
+
+import img2 from '../../assets/birne_mittig.png';
+
+<Image src={img1} alt="Image 1" height={150} quality={100} draggable={false} densities={[1, 2]} />
+<Image src={img2} alt="Image 2" height={150} quality={100} draggable={false} densities={[1, 2]} />
+
+import ImageSlideshow from '../../components/ImageSlideshow.astro';
+
+<ImageSlideshow images={[img1, img2]} height={200} />
+
+import ThemeToggle from '../../components/ThemeToggle.astro';
+
+<ThemeToggle />
+
 
 ## Blockquotes
 

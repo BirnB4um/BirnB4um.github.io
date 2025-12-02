@@ -131,6 +131,7 @@ code {
 		border-radius: 8px;
 		max-width: 100%;
 		height: auto;
+		margin: 0 auto;
 	}
 
 	p{
@@ -145,6 +146,10 @@ code {
 			text-align: left;
 		}
 
+	}
+
+	.slideshow {
+		margin: 1em auto;
 	}
 }
 

@@ -80,17 +80,16 @@ if (typeof window !== 'undefined') {
 
 
 <script>
-    const btn = document.querySelector(".theme-toggle") as HTMLElement;
+    document.querySelectorAll(".theme-toggle").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const html = document.documentElement;
+            const isDark = html.classList.contains("theme-dark");
 
-    btn.addEventListener("click", () => {
-        const html = document.documentElement;
-        const isDark = html.classList.contains("theme-dark");
+            html.classList.toggle("theme-dark", !isDark);
+            html.classList.toggle("theme-light", isDark);
 
-        html.classList.toggle("theme-dark", !isDark);
-        html.classList.toggle("theme-light", isDark);
-
-        localStorage.setItem("theme", isDark ? "theme-light" : "theme-dark");
-        console.log("Theme");
+            localStorage.setItem("theme", isDark ? "theme-light" : "theme-dark");
+        });
     });
 
     // Load saved theme

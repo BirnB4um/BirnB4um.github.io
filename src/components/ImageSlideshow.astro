@@ -1,0 +1,93 @@
+---
+const { images = [], width = null, height = "400px", auto_slideshow = 0 } = Astro.props;
+
+// Use the first image's dimensions if no explicit height
+const first = images[0];
+const ratio = first.height / first.width;
+---
+
+<div
+    class="slideshow"
+    style={`--h:${height}; --w:${width ? width : `calc(${height} / ${ratio})`};`}
+    data-images={JSON.stringify(images)}
+    data-auto={auto_slideshow}
+>
+    <button class="arrow left" data-dir="prev">‹</button>
+    <img class="slideshow-image" src={first.src} alt="slideshow" />
+    <button class="arrow right" data-dir="next">›</button>
+</div>
+
+<style>
+    .slideshow {
+        position: relative;
+        width: var(--w);
+        height: var(--h);
+        overflow: hidden;
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slideshow-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: inherit;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0.3rem 0.5rem;
+        font-size: 1.8rem;
+        background: rgba(0,0,0,0.45);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 0.15s;
+    }
+
+    .arrow:hover {
+        opacity: 1;
+    }
+
+    .arrow.left  { left: 0.5rem; }
+    .arrow.right { right: 0.5rem; }
+</style>
+
+<script>
+    const root = document.querySelector(".slideshow");
+    const imgEl = root.querySelector(".slideshow-image");
+    const arrows = root.querySelectorAll(".arrow");
+
+    const images = JSON.parse(root.dataset.images);
+    const auto = Number(root.dataset.auto);
+    let current = 0;
+
+    function update() {
+        imgEl.src = images[current].src;
+    }
+
+    function next() {
+        current = (current + 1) % images.length;
+        update();
+    }
+
+    function prev() {
+        current = (current - 1 + images.length) % images.length;
+        update();
+    }
+
+    arrows.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            btn.dataset.dir === "next" ? next() : prev();
+        });
+    });
+
+    if (auto > 0) setInterval(next, auto * 1000);
+</script>

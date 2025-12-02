@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectPost from '../../layouts/ProjectPost.astro';
+import ImageSlideshow from '../../components/ImageSlideshow.astro';
+
+const posts = await getCollection('projects');
+const post = posts.find((post) => post.id === 'no_mdx_post');
+
+
+import img1 from '../../assets/default_thumbnail.png';
+import img2 from '../../assets/birne_mittig.png';
+import img3 from '../../assets/projects/mov1.gif';
+import img4 from '../../assets/projects/skins.png';
+
+const images = [img1, img2, img3, img4];
+---
+
+<ProjectPost {...post.data}>
+	this is my content now
+    <ImageSlideshow
+        images={images}
+        height="400px"
+        auto_slideshow={0}
+    />
+</ProjectPost>
